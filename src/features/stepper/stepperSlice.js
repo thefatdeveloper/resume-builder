@@ -54,6 +54,13 @@ const stepperSlice = createSlice({
       }
     },
 
-    jumpToSteps: () => {},
+    jumpToStep: (state, { payload }) => {
+      if (state.prevSteps.includes(payload)) {
+        state.activeStep = payload;
+      }
+    },
   },
 });
+
+export const { nextStep, prevStep, jumpToStep } = stepperSlice.actions;
+export default stepperSlice.reducer;
