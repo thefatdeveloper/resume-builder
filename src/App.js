@@ -1,4 +1,7 @@
-// Task 2: Add imports here
+import Grid from "@mui/material/Grid";
+import MultiStepper from "./Components/MultiStepper";
+import Container from "@mui/material/Container";
+import { useSelector } from "react-redux";
 
 // Task 4: Add import here
 
@@ -14,10 +17,8 @@
 
 // Task 16: Add import here
 
-
 function App() {
-
-  // Task 2: retreive steps here
+  const { activeStep } = useSelector((store) => store.stepper);
 
   // function to render all the froms
   function renderForms(activeStep) {
@@ -39,12 +40,21 @@ function App() {
 
   return (
     <div className="App">
-      Resume Builder
-      {/* Task 2+4+15: add template here.*/}
-
+      {/* final template here.*/}
+      <Container label={'margin="none"'} sx={{ mt: 10, mb: 10 }}>
+        <MultiStepper sx={{ mt: 6 }} />
+        {activeStep < 5 ? (
+          <Grid container>
+            <Grid item md={8} lg={8} sm={12}>
+              {renderForms(activeStep)}
+            </Grid>
+          </Grid>
+        ) : (
+          <Grid container></Grid>
+        )}
+      </Container>
     </div>
   );
 }
 
 export default App;
-
