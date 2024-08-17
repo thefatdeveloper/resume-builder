@@ -3,7 +3,7 @@ import MultiStepper from "./Components/MultiStepper";
 import Container from "@mui/material/Container";
 import { useSelector } from "react-redux";
 
-// Task 4: Add import here
+import ShowTemplate from "./Components/ShowTemplate";
 
 // Task 6: Add employee info import here
 
@@ -47,6 +47,9 @@ function App() {
           <Grid container>
             <Grid item md={8} lg={8} sm={12}>
               {renderForms(activeStep)}
+            </Grid>
+            <Grid item md={4} lg={4} sm={12} xs={12}>
+              <ShowTemplate />
             </Grid>
           </Grid>
         ) : (
