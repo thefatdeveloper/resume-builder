@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid";
 import MultiStepper from "./Components/MultiStepper";
 import Container from "@mui/material/Container";
 import { useSelector } from "react-redux";
-
+import EmployeeInfo from "./Components/EmployeeInfo";
 import ShowTemplate from "./Components/ShowTemplate";
 
 // Task 6: Add employee info import here
@@ -23,8 +23,8 @@ function App() {
   // function to render all the froms
   function renderForms(activeStep) {
     switch (activeStep) {
-      // Task 6: Add employee info case here
-
+      case 0:
+        return <EmployeeInfo />;
       // Task 9: Add employee work case here
 
       // Task 11: Add employee education case here
