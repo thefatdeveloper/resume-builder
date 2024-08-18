@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import EmployeeInfo from "./Components/EmployeeInfo";
 import ShowTemplate from "./Components/ShowTemplate";
 
-// Task 6: Add employee info import here
+import EmployeeExperience from "./Components/EmployeeExperience";
 
 // Task 9: Add employee work import here
 
@@ -25,7 +25,8 @@ function App() {
     switch (activeStep) {
       case 0:
         return <EmployeeInfo />;
-      // Task 9: Add employee work case here
+      case 1:
+        return <EmployeeExperience />;
 
       // Task 11: Add employee education case here
 
