@@ -9,7 +9,7 @@ import EmployeeExperience from "./Components/EmployeeExperience";
 
 // Task 9: Add employee work import here
 
-// Task 11: Add employee education import here
+import EmployeeEducation from "./Components/EmployeeEducation";
 
 // Task 13: Add employee skills import here
 
@@ -28,7 +28,8 @@ function App() {
       case 1:
         return <EmployeeExperience />;
 
-      // Task 11: Add employee education case here
+      case 2:
+        return <EmployeeEducation />;
 
       // Task 13: Add employee skills case here
 
