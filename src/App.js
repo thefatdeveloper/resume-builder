@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import { useSelector } from "react-redux";
 import EmployeeInfo from "./Components/EmployeeInfo";
 import ShowTemplate from "./Components/ShowTemplate";
-
+import EmployeeSkills from "./Components/EmployeeSkills";
 import EmployeeExperience from "./Components/EmployeeExperience";
 
 // Task 9: Add employee work import here
@@ -31,7 +31,8 @@ function App() {
       case 2:
         return <EmployeeEducation />;
 
-      // Task 13: Add employee skills case here
+      case 3:
+        return <EmployeeSkills />;
 
       // Task 15: Add employee interests case here
 
