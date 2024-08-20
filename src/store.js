@@ -10,6 +10,7 @@ export const store = configureStore({
     info: infoReducer,
     work: workReducer,
     education: educationReducer,
+    skills: skillsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
