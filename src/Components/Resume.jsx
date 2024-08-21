@@ -7,7 +7,7 @@ import FormatColorFillIcon from "@mui/icons-material/FormatColorFill";
 import html2canvas from "html2canvas";
 
 const Resume = () => {
-  // Task 15: Add constants and templates here
+  //  constants and templates here
   const [sidebarBG, setSidebarBG] = useState("#3E4969");
   const [sidebarTxt, setSidebarTxt] = useState("#BD7A7A");
 
@@ -96,10 +96,33 @@ const Resume = () => {
   const cvTemplateRef = useRef(null);
 
   // Task 16: write handleGeneratePdf here
+  const handleGeneratePdf = () => {
+    const doc = new jsPDF("p", "px", [796.8, 1123.2]);
+
+    doc.html(cvTemplateRef.current, {
+      async callback(doc) {
+        doc.save(`${info.firstName + " " + info.lastName} Resume`);
+      },
+    });
+  };
 
   // Task 16: write handleGeneratePng here
+  const handleGeneratePng = () => {
+    const resume = cvTemplateRef.current;
+    const a = document.createElement("a");
 
-  // date format code here
+    html2canvas(resume)
+      .then((canvas) => {
+        a.href = canvas.toDataURL();
+        a.download = `${info.firstName + " " + info.lastName} Resume.png`;
+        document.body.appendChild(a);
+        a.click();
+      })
+      .then(() => {
+        a.remove();
+      });
+  };
+
   function formatDate(utcDate) {
     const date = new Date(utcDate);
     const month = date.getMonth() + 1;
@@ -107,7 +130,7 @@ const Resume = () => {
     return `${month}/${date.getDate()}/${date.getFullYear()}`;
   }
 
-  // Task 15: populate experience function here
+  // populate experience function code here
   const populateExperience = (experience) => {
     if (experience.organization) {
       return (
@@ -130,7 +153,7 @@ const Resume = () => {
     }
   };
 
-  // Task 15: populate education function here
+  // populate education function code here
   const populateEducation = (education) => {
     if (education.degree) {
       return (
@@ -152,7 +175,7 @@ const Resume = () => {
 
   return (
     <>
-      {/*Task 15: final html template here */}
+      {/*final html template here */}
       <div style={styles.container}>
         <div style={styles.resumeRow} ref={cvTemplateRef}>
           <div style={styles.sidebar}>
@@ -160,7 +183,7 @@ const Resume = () => {
               <div style={styles.canidateName}>
                 <h2 style={{ ...styles.profileContentColor, ...styles.dFlex }}>
                   {
-                    /* first name and last name here */ info.firstName +
+                    /* write first name and last name here */ info.firstName +
                       " " +
                       info.lastName
                   }
@@ -358,6 +381,27 @@ const Resume = () => {
           </div>
         </div>
         {/* Task 16: Add download template here */}
+        <div className="dropdown">
+          <Button variant="contained" sx={{ background: "#F26D85", mx: 0.5 }}>
+            Download
+          </Button>
+          <div className="dropdown-content">
+            <a
+              href="#"
+              // call handleGeneratePdf function here
+              onClick={handleGeneratePdf}
+            >
+              PDF
+            </a>
+            <a
+              href="#"
+              // call handleGeneratePng function here
+              onClick={handleGeneratePng}
+            >
+              PNG
+            </a>
+          </div>
+        </div>
       </Box>
     </>
   );
