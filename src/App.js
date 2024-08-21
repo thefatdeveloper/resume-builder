@@ -13,7 +13,7 @@ import EmployeeEducation from "./Components/EmployeeEducation";
 
 // Task 13: Add employee skills import here
 
-// Task 15: Add employee interests import here
+import EmployeeInterests from "./Components/EmployeeInterests";
 
 // Task 16: Add import here
 
@@ -27,15 +27,12 @@ function App() {
         return <EmployeeInfo />;
       case 1:
         return <EmployeeExperience />;
-
       case 2:
         return <EmployeeEducation />;
-
       case 3:
         return <EmployeeSkills />;
-
-      // Task 15: Add employee interests case here
-
+      case 4:
+        return <EmployeeInterests />;
       default:
         break;
     }
