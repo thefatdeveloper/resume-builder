@@ -6,6 +6,7 @@ import EmployeeInfo from "./Components/EmployeeInfo";
 import ShowTemplate from "./Components/ShowTemplate";
 import EmployeeSkills from "./Components/EmployeeSkills";
 import EmployeeExperience from "./Components/EmployeeExperience";
+import Resume from "./Components/Resume";
 
 // Task 9: Add employee work import here
 
@@ -53,7 +54,9 @@ function App() {
             </Grid>
           </Grid>
         ) : (
-          <Grid container></Grid>
+          <Grid container>
+            <Resume />
+          </Grid>
         )}
       </Container>
     </div>
