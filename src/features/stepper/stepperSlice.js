@@ -39,7 +39,7 @@ const stepperSlice = createSlice({
   initialState,
   reducers: {
     nextStep: (state) => {
-      if (state.activeStep < state.steps.length < 1) {
+      if (state.activeStep < state.steps.length - 1) {
         state.prevSteps = [...state.prevSteps, state.activeStep];
         state.activeStep += 1;
       }
